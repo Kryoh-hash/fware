@@ -357,9 +357,7 @@ NodeDB::NodeDB()
     #else
         config.position.broadcast_smart_minimum_interval_secs = MAX_INTERVAL;
     #endif
-    
-    if (config.position.gps_update_interval > MAX_INTERVAL)
-        config.position.gps_update_interval = MAX_INTERVAL;
+
     if (config.position.gps_attempt_time > MAX_INTERVAL)
         config.position.gps_attempt_time = MAX_INTERVAL;
     if (config.position.position_flags > MAX_INTERVAL)
