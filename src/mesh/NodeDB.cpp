@@ -342,9 +342,22 @@ NodeDB::NodeDB()
     #else
         config.device.node_info_broadcast_secs = MAX_INTERVAL;
     #endif
-    
-    if (config.position.position_broadcast_secs > MAX_INTERVAL)
+    #ifdef USERPREFS_CONFIG_DEVICE_POSITION_BROADCAST_INTERVAL
+        config.position.position_broadcast_secs = USERPREFS_CONFIG_DEVICE_POSITION_BROADCAST_INTERVAL;
+    #else
         config.position.position_broadcast_secs = MAX_INTERVAL;
+    #endif
+    #ifdef USERPREFS_CONFIG_DEVICE_SMART_MINIMUM_DISTANCE
+        config.position.broadcast_smart_minimum_distance = USERPREFS_CONFIG_DEVICE_SMART_MINIMUM_DISTANCE;
+    #else
+        config.position.broadcast_smart_minimum_distance = MAX_INTERVAL;
+    #endif
+    #ifdef USERPREFS_CONFIG_DEVICE_SMART_MINIMUM_INTERVAL
+        config.position.broadcast_smart_minimum_interval_secs = USERPREFS_CONFIG_DEVICE_SMART_MINIMUM_INTERVAL;
+    #else
+        config.position.broadcast_smart_minimum_interval_secs = MAX_INTERVAL;
+    #endif
+    
     if (config.position.gps_update_interval > MAX_INTERVAL)
         config.position.gps_update_interval = MAX_INTERVAL;
     if (config.position.gps_attempt_time > MAX_INTERVAL)
@@ -355,10 +368,6 @@ NodeDB::NodeDB()
         config.position.rx_gpio = MAX_INTERVAL;
     if (config.position.tx_gpio > MAX_INTERVAL)
         config.position.tx_gpio = MAX_INTERVAL;
-    if (config.position.broadcast_smart_minimum_distance > MAX_INTERVAL)
-        config.position.broadcast_smart_minimum_distance = MAX_INTERVAL;
-    if (config.position.broadcast_smart_minimum_interval_secs > MAX_INTERVAL)
-        config.position.broadcast_smart_minimum_interval_secs = MAX_INTERVAL;
     if (config.position.gps_en_gpio > MAX_INTERVAL)
         config.position.gps_en_gpio = MAX_INTERVAL;
     if (moduleConfig.neighbor_info.update_interval > MAX_INTERVAL)
