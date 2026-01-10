@@ -885,6 +885,8 @@ void NodeDB::installDefaultModuleConfig()
     moduleConfig.has_canned_message = true;
 #if USERPREFS_MQTT_ENABLED && !MESHTASTIC_EXCLUDE_MQTT
     moduleConfig.mqtt.enabled = true;
+    moduleConfig.mqtt.map_reporting_enabled = USERPREFS_MQTT_MAP_REPORTING;
+    moduleConfig.mqtt.map_report_settings.publish_interval_secs = USERPREFS_MQTT_MAP_REPORTING_INTERVAL
 #endif
 #ifdef USERPREFS_MQTT_ADDRESS
     strncpy(moduleConfig.mqtt.address, USERPREFS_MQTT_ADDRESS, sizeof(moduleConfig.mqtt.address));
