@@ -545,6 +545,12 @@ void NodeDB::installDefaultConfig(bool preserveKey = false)
     config.has_security = true;
     config.device.rebroadcast_mode = meshtastic_Config_DeviceConfig_RebroadcastMode_ALL;
 
+    #ifdef USERPREFS_CONFIG_REBROADCAST_MODE
+        config.device.rebroadcast_mode = USERPREFS_CONFIG_REBROADCAST_MODE;
+    #else
+        config.device.rebroadcast_mode = meshtastic_Config_DeviceConfig_RebroadcastMode_ALL;
+    #endif
+
     config.lora.sx126x_rx_boosted_gain = true;
     config.lora.tx_enabled =
         true; // FIXME: maybe false in the future, and setting region to enable it. (unset region forces it off)
