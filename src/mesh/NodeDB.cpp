@@ -336,8 +336,13 @@ NodeDB::NodeDB()
             moduleConfig.telemetry.health_update_interval, min_default_telemetry_interval_secs);
     }
     // FIXME: UINT32_MAX intervals overflows Apple clients until they are fully patched
-    if (config.device.node_info_broadcast_secs > MAX_INTERVAL)
+
+    #ifdef USERPREFS_CONFIG_DEVICE_NODEINFO_BROADCAST_INTERVAL
+        config.device.node_info_broadcast_secs = USERPREFS_CONFIG_DEVICE_NODEINFO_BROADCAST_INTERVAL;
+    #else
         config.device.node_info_broadcast_secs = MAX_INTERVAL;
+    #endif
+    
     if (config.position.position_broadcast_secs > MAX_INTERVAL)
         config.position.position_broadcast_secs = MAX_INTERVAL;
     if (config.position.gps_update_interval > MAX_INTERVAL)
