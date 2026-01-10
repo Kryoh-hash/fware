@@ -36,6 +36,7 @@
   "USERPREFS_CONFIG_DEVICE_TELEM_UPDATE_INTERVAL": "12400", // Device telemetry update interval in seconds
   "USERPREFS_LORACONFIG_CHANNEL_NUM": "1",
   "USERPREFS_LORACONFIG_MODEM_PRESET": "meshtastic_Config_LoRaConfig_ModemPreset_LONG_FAST",
+  "USERPREFS_CONFIG_REBROADCAST_MODE": "meshtastic_Config_DeviceConfig_RebroadcastMode_CORE_PORTNUMS_ONLY",
   "USERPREFS_LORACONFIG_HOP_LIMIT": "4",
   // "USERPREFS_USE_ADMIN_KEY_0": "{}",
   // "USERPREFS_USE_ADMIN_KEY_1": "{}",
